@@ -1,0 +1,14 @@
+*.p
+*.ipynb
+*.csv
+*.eps
+*.xls
+*.xlsx
+*.json
+*.xml
+figures/
+tmp/
+data_out/
+irs_form_lists/
+tutorials/
+example_xml/
