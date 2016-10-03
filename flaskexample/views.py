@@ -4,15 +4,15 @@ from flaskexample import app
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 import pandas as pd
-import psycopg2
+# import psycopg2
 from a_Model import ModelIt
 
-user = 'Jay' #add your username here (same as previous postgreSQL)
-host = 'localhost'
-dbname = 'birth_db'
-db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
-con = None
-con = psycopg2.connect(database = dbname, user = user)
+# user = 'Jay' #add your username here (same as previous postgreSQL)
+# host = 'localhost'
+# dbname = 'birth_db'
+# db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
+# con = None
+# con = psycopg2.connect(database = dbname, user = user)
 
 @app.route('/')
 @app.route('/index')
