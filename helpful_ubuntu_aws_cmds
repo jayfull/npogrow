@@ -2,3 +2,4 @@
 #sudo supervisord -c simple.conf
 #sudo pkill gunicorn
 #sudo pkill supervisord
+# scp -i ~/Dropbox/work/datasci/insight/ec2keys/npogrow.pem cartodb_apikey.json ubuntu@52.55.5.144:/home/ubuntu  ##scp from local laptop to unbuntu
