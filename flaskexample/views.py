@@ -16,10 +16,8 @@ from b_Model import ModelIt
 
 @app.route('/')
 @app.route('/index')
-def index():
-    return render_template("index.html",
-       title = 'Home', user = { 'nickname': 'Miguel' },
-       )
+def cesareans_input():
+    return render_template("input.html")
 
 @app.route('/db')
 def birth_page():
