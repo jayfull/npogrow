@@ -1,0 +1,4 @@
+#ps -A
+#sudo supervisord -c simple.conf
+#sudo pkill gunicorn
+#sudo pkill supervisord
