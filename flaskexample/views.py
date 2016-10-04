@@ -16,8 +16,8 @@ from b_Model import ModelIt
 
 @app.route('/')
 @app.route('/index')
-def cesareans_input():
-    return render_template("input.html")
+def cesareans_index():
+    return render_template("index.html")
 
 @app.route('/db')
 def birth_page():
