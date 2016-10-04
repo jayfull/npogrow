@@ -7,6 +7,23 @@ import pandas as pd
 # import psycopg2
 from b_Model import ModelIt
 
+
+from cartodb import CartoDBAPIKey, CartoDBException, FileImport
+import json
+import io
+
+#read in cartodb credentials from secret file
+with io.open('cartodb_apikey.json') as cred:
+    creds = json.load(cred)
+
+API_KEY = creds['API_KEY']
+# API_KEY = 'a251f1093712bf45ca9b4a69cd66147a2ec95320'
+cartodb_domain = creds['cartodb_domain']
+# cartodb_domain = 'jayfull'
+
+
+cl = CartoDBAPIKey(API_KEY, cartodb_domain)
+
 # user = 'Jay' #add your username here (same as previous postgreSQL)
 # host = 'localhost'
 # dbname = 'birth_db'
