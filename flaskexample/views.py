@@ -1,3 +1,4 @@
+from __future__ import division
 from flask import render_template
 from flask import request
 from flaskexample import app
@@ -36,6 +37,10 @@ cl = CartoDBAPIKey(API_KEY, cartodb_domain)
 def cesareans_index():
     return render_template("index.html")
 
+@app.route('/about')
+def cesareans_about():
+    return render_template("about.html")
+
 @app.route('/db')
 def birth_page():
     sql_query = """
@@ -72,7 +77,16 @@ def cesareans_input():
 def cesareans_output():
   #pull 'birth_month' from input field and store it
   patient = int(request.args.get('birth_month'))
-
+  if patient >= 2490000: # database only make predictions up to 24900000
+    patient = 24900000
+  uinput = round(patient/1000000,1) #divide by 1000000 to convert into $ millions to match the database. Keep to the first deciaml point.
+  uinput = str(uinput) # put dollar value (now converted to millions) into a string to match the headers in the database
+  uinput = uinput.replace('.', '_')
+  uinput = '_' + uinput
+  try:
+    print(cl.sql("UPDATE locsout SET Prob = probout." + uinput + " FROM probout WHERE probout.cbsa_short_name = locsout.cbsa_short_name"))
+  except CartoDBException as e:
+    print("some error ocurred", e)
     #just select the Cesareans  from the birth dtabase for the month that the user inputs
   # query = "SELECT index, attendant, birth_month FROM birth_data_table WHERE delivery_method='Cesarean' AND birth_month='%s'" % patient
   # print query
