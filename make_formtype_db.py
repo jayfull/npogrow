@@ -68,7 +68,9 @@ query = "INSERT INTO formtype (xmlID, formtype, ein) VALUES (%s, %s, %s)"
 for i, f in enumerate(files):
     # if i < 20:
     try:
-        data.append(getform(f))
+        dt = getform(f)
+        if dt:
+            data.append(dt)
     except:
         pass
     if i % 10000 == 0:

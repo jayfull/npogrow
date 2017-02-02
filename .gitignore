@@ -14,3 +14,16 @@ data_out/
 irs_form_lists/
 tutorials/
 example_xml/
+*.pdf
+*.png
+NormParamsOut
+address2015
+address2015_small
+peersSummary
+formFind
+*.ai
+all_latlongs_smartystreets
+e0_rest_of_usa_concat
+eo1_northeast
+eo2_mid_atlantic
+get_latlong.py
